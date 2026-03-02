@@ -1,0 +1,34 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: '17'
+
+    - name: Make gradlew executable
+      run: chmod +x gradlew
+
+    - name: Build APK and AAB
+      run: ./gradlew assembleRelease bundleRelease
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: android-build-artifacts
+        path: app/build/outputs/
