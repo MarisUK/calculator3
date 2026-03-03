@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Add necessary shell script content for gradlew
+# Gradle wrapper script to run gradlew with correct configuration
+# Ensure that the gradle-wrapper.jar is in the appropriate location
 
-# This is a placeholder script content to simulate the expected behavior
-# You would replace this with the actual content needed to run gradlew
+GRADLE_WRAPPER_PATH=./gradle/wrapper/gradle-wrapper.jar
 
-exec java -classpath "path/to/gradle-launcher.jar" org.gradle.launcher.GradleMain "$@"
+exec java -classpath "$GRADLE_WRAPPER_PATH" org.gradle.wrapper.GradleWrapperMain "$@"
