@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         val num2 = inputNumber2.text.toString().toDoubleOrNull()
 
         if (num1 == null || num2 == null) {
-            textViewResult.text = "Lūdzu, ievadiet derīgus skaitļus"
+            Toast.makeText(this, "Lūdzu, ievadiet derīgus skaitļus", Toast.LENGTH_SHORT).show()
             return
         }
 
